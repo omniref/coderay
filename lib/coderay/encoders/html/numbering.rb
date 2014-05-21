@@ -88,7 +88,7 @@ module Encoders
           line_numbers << "\n"
           line_numbers_table_template = Output::TABLE.apply('LINE_NUMBERS', line_numbers)
 
-          if options.wrap_lines
+          if options[:wrap_lines]
             line_number = start
             output.gsub!(/^.*$\n?/) do |line|
               "<div class='line n#{line_number}'>#{line}</div>"
