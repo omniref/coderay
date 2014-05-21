@@ -91,8 +91,9 @@ module Encoders
           if options[:wrap_lines]
             line_number = start
             output.gsub!(/^.*$\n?/) do |line|
-              "<div class='line n#{line_number}'>#{line}</div>"
+              wrapped_line = "<div class='line n#{line_number}'>#{line}</div>"
               line_number += 1
+              wrapped_line
             end
           end
 
