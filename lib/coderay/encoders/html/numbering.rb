@@ -79,7 +79,7 @@ module Encoders
             line_number += 1
             numbered_line = "<span class=\"line-numbers\">#{indent}#{line_number_text}</span>#{line}"
             if options.wrap_lines
-              numbered_line = "<div class='line n#{line_number}'>${numbered_line}</div>"
+              numbered_line = "<div class='line' data-line-number='#{line_number}'>${numbered_line}</div>"
             end
             numbered_line
           end
@@ -91,7 +91,7 @@ module Encoders
           if options[:wrap_lines]
             line_number = start
             output.gsub!(/^.*$\n?/) do |line|
-              wrapped_line = "<div class='line n#{line_number}'>#{line}</div>"
+              wrapped_line = "<div class='line' data-line-number='#{line_number}'>#{line}</div>"
               line_number += 1
               wrapped_line
             end
